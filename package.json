@@ -5,8 +5,8 @@
   "scripts": {
     "build": "npm run build:client && npm run build:server",
     "build:client": "cd client && npm ci && npm run build",
-    "build:server": "cd server && npm ci && npx prisma generate && npx prisma migrate deploy && npm run build",
-    "start": "cd server && node dist/index.js",
+    "build:server": "cd server && npm ci && npx prisma generate && npm run build",
+    "start": "cd server && npx prisma migrate deploy && node dist/index.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev"
