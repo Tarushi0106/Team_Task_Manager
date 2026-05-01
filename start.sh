@@ -1,10 +1,9 @@
 #!/bin/sh
-set -e
 
 cd server
 
-echo "Running database migrations..."
-npx prisma migrate deploy
+echo "==> Running migrations..."
+npx prisma migrate deploy || echo "==> Migration warning (continuing anyway)"
 
-echo "Starting server..."
-node dist/index.js
+echo "==> Starting server on port ${PORT:-4000}..."
+exec node dist/index.js
